@@ -28,6 +28,9 @@ modules:
       - name: bookstoreapp-db
       - name: bookstoreapp-connectivity
       - name: bookstoreapp-destination
+      - name: joy-autoscaler
+        parameters:
+          path: ./autoscaler.json
 
   - name: bookstoreapp-db-deployer
     type: hdb
@@ -84,3 +87,8 @@ resources:
     parameters:
       service: destination
       service-plan: lite
+  - name: joy-autoscaler
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: autoscaler
+      service-plan: standard
